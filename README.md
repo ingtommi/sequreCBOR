@@ -34,7 +34,7 @@ ma questo oggetto JSON viene cifrato e reso irriconoscibile durante la comunicaz
 
 ## Algoritmo
 
-Questo progetto utilizza l'algoritmo crittografico **AES-GCM** con chiave a **128 bit** per garantire la sicurezza nello scambio dei messaggi. Oltre a garantire la **confidenzialità** dell'informazione, la modalità operativa GCM consente anche l'**autenticazione** e così diventa impossibile per un utente malintenzionato leggere e addirittura modificare i dati per creare falsi allarmi sismici.
+Questo progetto utilizza l'algoritmo crittografico **AES-GCM** con chiave a **128 bit** per garantire la sicurezza nello scambio dei messaggi. Oltre a garantire la **confidenzialità** dell'informazione, la modalità operativa GCM controlla anche l'**autenticità** e così diventa impossibile per un utente malintenzionato leggere e addirittura modificare i dati per creare falsi allarmi sismici.
 
 ## Funzionamento
 
