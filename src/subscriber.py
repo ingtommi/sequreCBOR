@@ -5,6 +5,8 @@ from cose.messages import CoseMessage
 from cose.keys import CoseKey
 from json import loads
 import paho.mqtt.client as mqtt
+from cryptography.exceptions import InvalidTag
+import time
 import sys
 
 #COSE KEY STRUCTURE
@@ -21,15 +23,21 @@ def on_connect(client, userdata, flags, rc):
 
 def on_message(client, userdata, msg):
     ''' on_message function, it is called after the message is received '''
-    received = msg.payload
-    decoded = CoseMessage.decode(received) #decoding from CBOR
-    decoded.key = key #key to decrypt
-    decrypted = decoded.decrypt() #decrypting
-    data = loads(decrypted.decode('utf-8'))
-    #FILE
-    with open('data.txt', 'a') as f:
-        f.write(str(data) + '\n\n')
-
+    try:
+        received = msg.payload
+        decoded = CoseMessage.decode(received) #decoding from CBOR
+        decoded.key = key #key to decrypt
+        decrypted = decoded.decrypt() #decrypting
+        data = loads(decrypted.decode('utf-8'))
+        #FILE
+        with open('data.txt', 'a') as f1:
+            f1.write(str(data) + '\n\n')
+    except InvalidTag: #raised if the auth tag is not correct
+        t = time.localtime()
+        current_time = time.strftime("%H:%M:%S", t)
+        with open('log.txt', 'a') as f2:
+            f2.write('Attempted attack at {}\n'.format(current_time))
+            
 def main():
     ''' connects to the broker and calls the function to read and save data '''
     try:

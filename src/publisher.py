@@ -13,6 +13,12 @@ import sys
 import os
 import paho.mqtt.client as mqtt
 
+#COSE KEY STRUCTURE
+cose_key = {
+    'KTY': 'SYMMETRIC', #key type
+    'K': unhexlify(b'000102030405060708090a0b0c0d0e0e')} #key = 128 bit
+key = CoseKey.from_dict(cose_key)
+
 def packgen(numsamp, sps):
     ''' generates a random packet to simulate the measures '''
     tms = 1000*round(datetime.timestamp(datetime.now()))
@@ -51,11 +57,6 @@ def main():
             msg = Enc0Message(
                 phdr = {Algorithm: A128GCM, IV: os.urandom(12)}, #protected header with random IV = 12 byte
                 payload = dumps(packgen(numsamp,sps)).encode('utf-8')) #payload
-            #COSE KEY STRUCTURE
-            cose_key = {
-                'KTY': 'SYMMETRIC', #key type
-                'K': unhexlify(b'000102030405060708090a0b0c0d0e0f')} #key = 128 bit
-            key = CoseKey.from_dict(cose_key)
             msg.key = key
             encoded = msg.encode() #encrypting and encoding in a single function
             #MQTT PUBLICATION
