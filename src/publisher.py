@@ -16,7 +16,7 @@ import paho.mqtt.client as mqtt
 #COSE KEY STRUCTURE
 cose_key = {
     'KTY': 'SYMMETRIC', #key type
-    'K': unhexlify(b'000102030405060708090a0b0c0d0e0e')} #key = 128 bit
+    'K': unhexlify('000102030405060708090a0b0c0d0e0e')} #key = 128 bit
 key = CoseKey.from_dict(cose_key)
 
 def packgen(numsamp, sps):
@@ -45,8 +45,9 @@ def main():
         sps = int(sys.argv[2]) #frequency of the samples
         delay = numsamp/sps #delay between packets 
         #MQTT CONNECTION
-        broker_address = 'test.mosquitto.org' #broker
-        client = mqtt.Client () #random id to be sure that is unique
+        broker_address = 'test.mosquitto.org'
+        topic = 'data\sensor'
+        client = mqtt.Client() #random id to be sure that is unique
         client.on_connect = on_connect
         client.connect(broker_address)
         client.loop_start()
@@ -60,7 +61,7 @@ def main():
             msg.key = key
             encoded = msg.encode() #encrypting and encoding in a single function
             #MQTT PUBLICATION
-            client.publish('data\sensor', encoded) #topic, data
+            client.publish(topic, encoded) #topic, data
     except KeyboardInterrupt: #raised after <CTRL+C>
         print('Ending...')
         client.disconnect()
