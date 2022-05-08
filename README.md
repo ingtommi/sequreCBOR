@@ -9,7 +9,7 @@
 </div>
 
 ## Introduzione
-Questo codice python simula il comportamento di una infrastruttura di rete composta da:
+Questo codice python simula il comportamento di una architettura di rete composta da:
 
 * **Publisher:** sensore che misura i parametri sismici di una struttura e invia i dati alla stazione di monitoraggio
 * **Subscriber:** stazione che riceve e analizza i dati
