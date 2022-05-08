@@ -18,7 +18,7 @@ La comunicazione tra i due nodi prevede l'utilizzo di [dati](dati) formato [CBOR
 
 Per la codifica e la cifratura si è fatto uso della libreria [pycose](https://github.com/TimothyClaeys/pycose), mentre [paho](https://github.com/eclipse/paho.mqtt.python) si occupa della gestione dei Client nel protocollo di rete. La scelta del Broker è ricaduta sul servizio online gratuito  offerto da [Mosquitto](http://test.mosquitto.org/).
 
-<a name="dati"></a>
+<a name=dati></a>
 ## Dati
 
 La struttura dei dati da scambiare è la seguente:
