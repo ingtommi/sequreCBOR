@@ -9,16 +9,16 @@
 </div>
 
 ## Introduzione
-Questo codice python simula il comportamento di una infrastruttura di rete composta da:
+Questo codice python simula il comportamento di una architettura di rete composta da:
 
 * **Publisher:** sensore che misura i parametri sismici di una struttura e invia i dati alla stazione di monitoraggio
 * **Subscriber:** stazione che riceve e analizza i dati
 
-La comunicazione tra i due nodi prevede l'utilizzo di [dati](dati) formato [CBOR](https://cbor.io) cifrati con chiave simmetrica e inviati attraverso il protocollo MQTT. La descrizione dettagliata di quanto implementato si trova nella Tesi di Laurea.
+La comunicazione tra i due nodi prevede l'utilizzo di [dati](#dati) formato [CBOR](https://cbor.io) cifrati con chiave simmetrica e inviati attraverso il protocollo MQTT. La descrizione dettagliata di quanto implementato si trova nella Tesi di Laurea.
 
-Per la codifica e la cifratura si è fatto uso della libreria [pycose](https://github.com/TimothyClaeys/pycose), mentre [paho](https://github.com/eclipse/paho.mqtt.python) si occupa della gestione dei Client nel protocollo di rete. La scelta del Broker è ricaduta sul servizio online gratuito  offerto da [Mosquitto](http://test.mosquitto.org/).
+Per la codifica e la cifratura si è fatto uso della libreria [pycose](https://github.com/TimothyClaeys/pycose), mentre [paho](https://github.com/eclipse/paho.mqtt.python) si occupa della gestione dei client nel protocollo di rete. La scelta del Broker è ricaduta sul servizio online gratuito  offerto da [Mosquitto](http://test.mosquitto.org/).
 
-<a name="dati"></a>
+<a name=dati></a>
 ## Dati
 
 La struttura dei dati da scambiare è la seguente:
