@@ -43,7 +43,7 @@ def main():
     try:
         #MQTT CONNECTION
         broker_address = 'test.mosquitto.org'
-	  topic = 'data\sensor'
+        topic = 'data\sensor'
         client = mqtt.Client() #random id to be sure that is unique
         client.on_connect = on_connect
         client.on_message = on_message

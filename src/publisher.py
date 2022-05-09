@@ -16,7 +16,7 @@ import paho.mqtt.client as mqtt
 #COSE KEY STRUCTURE
 cose_key = {
     'KTY': 'SYMMETRIC', #key type
-    'K': unhexlify('000102030405060708090a0b0c0d0e0e')} #key = 128 bit
+    'K': unhexlify('000102030405060708090a0b0c0d0e0f')} #key = 128 bit
 key = CoseKey.from_dict(cose_key)
 
 def packgen(numsamp, sps):
