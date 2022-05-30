@@ -50,4 +50,4 @@ Fatto ciò inizia la pubblicazione sul topic ***data\sensor*** e il ricevitore c
 
 ## Test
    
-La scelta di **algoritmo** e **chiave** è stata presa sulla base degli output generati [qui](https://github.com/ingtommi/sequreCBOR/blob/main/src/test/scelta.py), mentre [questo](https://github.com/ingtommi/sequreCBOR/blob/main/src/test/confronto.py) ha permesso di valutare i **vantaggi** del protocollo [COSE](https://datatracker.ietf.org/doc/html/rfc8152) sul [JOSE](https://datatracker.ietf.org/doc/html/rfc4627).
+La scelta di **algoritmo** e **chiave** è stata presa sulla base degli output generati [qui](https://github.com/ingtommi/sequreCBOR/blob/main/src/test/scelta.py), mentre [questo](https://github.com/ingtommi/sequreCBOR/blob/main/src/test/confronto.py) ha permesso di valutare i **vantaggi** del protocollo [COSE](https://datatracker.ietf.org/doc/html/rfc8152) sul [JOSE](https://datatracker.ietf.org/wg/jose/charter/).
