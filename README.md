@@ -34,16 +34,20 @@ ma questo oggetto JSON viene cifrato e reso irriconoscibile durante la comunicaz
 
 ## Algoritmo
 
-Questo progetto utilizza l'algoritmo crittografico **AES-GCM** con chiave a **128 bit** per garantire la sicurezza nello scambio dei messaggi. Oltre a garantire la **confidenzialità** dell'informazione, la modalità operativa GCM controlla anche l'**autenticità** e così diventa impossibile per un utente malintenzionato leggere e addirittura modificare i dati per creare falsi allarmi sismici.
+Questo progetto utilizza l'algoritmo crittografico **AES-GCM** con chiave a **256 bit** per garantire la sicurezza nello scambio dei messaggi. Oltre a garantire la **confidenzialità** dell'informazione, la modalità operativa GCM controlla anche l'**autenticità** e così diventa impossibile per un utente malintenzionato leggere e addirittura modificare i dati per creare falsi allarmi sismici.
 
 ## Funzionamento
 
 <p align="center">
 <img src="image.jpg" width="100%" height="100%">
   
-Come mostrato in figura, per eseguire il programma dopo aver scaricato i file è sufficiente aprire due diversi terminali e lanciare i comandi illustrati. A differenza del codice per il **Subscriber**, il **Publisher** ha bisogno che gli vengano passati due parametri per poter funzionare:
+Come mostrato in figura, per eseguire la simulazione è sufficiente scaricare i due file e lanciare da due diversi terminali i comandi illustrati. A differenza del codice per il **Subscriber**, quello del **Publisher** ha bisogno che gli vengano passati due parametri per poter funzionare:
   
 * ***numsamp:*** numero di campioni presenti in ogni pacchetto
 * ***sps:*** frequenza con cui vengono presi questi campioni
   
-Fatto ciò inizia la pubblicazione sul topic ***data\sensor*** e il ricevitore che è in ascolto legge e salva i dati su un file di testo.
+Fatto ciò inizia la pubblicazione sul topic ***data\sensor*** e il ricevitore che è in ascolto legge e salva i dati sul file **data.txt**. Qualora però il pacchetto non sia processabile si è di fronte ad una possibile manomissione e in tal caso si scarta l'informazione e si annota l'evento sul file **log.txt**.
+
+## Test
+   
+La scelta di **algoritmo** e **chiave** è stata presa sulla base degli output generati [qui](https://github.com/ingtommi/sequreCBOR/blob/main/src/test/scelta.py), mentre [questo](https://github.com/ingtommi/sequreCBOR/blob/main/src/test/confronto.py) ha permesso di valutare i **vantaggi** del protocollo [COSE](https://datatracker.ietf.org/doc/html/rfc8152) sul [JOSE](https://datatracker.ietf.org/doc/html/rfc4627).
