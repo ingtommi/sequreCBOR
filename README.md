@@ -43,8 +43,8 @@ Questo progetto utilizza l'algoritmo crittografico **AES-GCM** con chiave a **25
   
 Come mostrato in figura, per eseguire la simulazione è sufficiente scaricare i due file e lanciare da due diversi terminali i comandi illustrati. A differenza del codice per il **Subscriber**, quello del **Publisher** ha bisogno che gli vengano passati due parametri per poter funzionare:
   
-* ***numsamp:*** numero di campioni presenti in ogni pacchetto
-* ***sps:*** frequenza con cui vengono presi questi campioni
+* ***numsamp:*** numero di campioni presenti in ogni pacchetto (poi generati in modo random)
+* ***sps:*** frequenza con cui vengono presi questi campioni (inserito solo per riprodurre più fedelmente il pacchetto prodotto dal sensore)
   
 Fatto ciò inizia la pubblicazione sul topic ***data\sensor*** e il ricevitore che è in ascolto legge e salva i dati sul file **data.txt**. Qualora però il pacchetto non sia processabile si è di fronte ad una possibile manomissione e in tal caso si scarta l'informazione e si annota l'evento sul file **log.txt**.
 
