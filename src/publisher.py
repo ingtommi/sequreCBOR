@@ -56,7 +56,7 @@ def main():
             time.sleep(delay)
             #COSE ENCRYPT0 STRUCTURE
             msg = Enc0Message(
-                phdr = {Algorithm: A128GCM, IV: os.urandom(12)}, #protected header with random IV = 12 byte
+                phdr = {Algorithm: A256GCM, IV: os.urandom(12)}, #protected header with random IV = 12 byte
                 payload = dumps(packgen(numsamp,sps)).encode('utf-8')) #payload
             msg.key = key
             encoded = msg.encode() #encrypting and encoding in a single function
